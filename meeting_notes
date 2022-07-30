@@ -1,0 +1,36 @@
+Limitations:
+Single container per Node.
+GPU
+Minor Security
+Continues Spot node after evacuation
+#Not mandatory to make it work
+Might not work with deployments
+Restore might work and may not
+Nice To Have - use it only for pods that are running on spot worker nodes.
+Deployment/Stateful sets might be in risk for working.
+
+
+To Check:
+what happens in k8s when aws spot instance wants to close the node
+
+Architecture change
+
+Technical questions:
+
+Set up kind + mutating admission controller
+How to label the pods that we are running, how do we know if a pod is down and goes up, how should we know it should be restored
+Cleanup for previous image
+Checkpoint every X
+Mice to have - multiple checkpoints time , default will be 5 minutes for all pods
+If time is not enough to upload images, skip next image.
+image repo - local? docker hub of k8s.
+Status update using through CRD - how many pods are we looking into, how many currently checkpointed, how many was restored
+Base64 encryption
+quey increption
+
+Operator SDK - create empty operator
+
+Technical help:
+https://medium.com/ovni/writing-a-very-basic-kubernetes-mutating-admission-webhook-398dbbcb63ec
+
+Design - Image+:
